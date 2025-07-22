@@ -1,19 +1,21 @@
 {
   "name": "assignment-01",
-  "type" : "module",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "vitest",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^24.0.15",
+    "@vitest/coverage-v8": "^3.2.4",
     "@vitest/ui": "^3.2.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
