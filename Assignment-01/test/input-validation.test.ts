@@ -1,12 +1,16 @@
 import { describe, it, vi, expect } from "vitest";
-import { validateItemType, validatePrice, validateQuantity } from "../src/utils/inputValidation";
-import { ItemType } from "../src/model/itemType";
-
+import {
+  validateItemType,
+  validatePrice,
+  validateQuantity,
+} from "../src/utils/input-validation.js";
+import { ItemType } from "../src/models/item-type.js";
 
 vi.mock("../model/itemType.js", () => ({
   ItemType,
 }));
 
+// test cases for input validation functions
 describe("validatePrice", () => {
   it("should return number when valid price is passed", () => {
     expect(validatePrice("100")).toBe(100);

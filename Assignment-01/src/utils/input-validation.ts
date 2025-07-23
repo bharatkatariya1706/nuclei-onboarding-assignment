@@ -1,4 +1,4 @@
-import { ItemType } from "../model/itemType.js";
+import { ItemType } from "../models/item-type.js";
 
 // this funciton validates the price input from the user
 export function validatePrice(price: string): number | null {

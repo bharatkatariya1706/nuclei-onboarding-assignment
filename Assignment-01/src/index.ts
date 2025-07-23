@@ -1,40 +1,42 @@
 import { getUserInput } from "./utils/input.js";
-import { Item } from "./model/item.js";
-import { ItemFactory } from "./factories/itemFactories.js";
+import { ItemFactory } from "./factories/item-factory.js";
+import { Item } from "./models/item.js";
+import { getValidatedItemInput, ItemInputData } from "./utils/input-handler.js";
 
-// function to process each new item entered by the user
+// Function to process each new item entered by the user
 export async function processNewItem() {
-  // use itemFactory to create a new item object
-  const item = await ItemFactory.createItem();
-  if (item === null) return;
+  // Get validated item input asynchronously
+  const data: ItemInputData | null = await getValidatedItemInput();
+  if (!data) return;
 
-  // Showing the item details in a tablular format to the user after all the calculations
+  // Use the ItemFactory to create a new item object
+  const item: Item | null = await ItemFactory.createItem(data);
+  if (!item) return;
+
+  // Show the item details in a tabular format
   console.log("\nItem Details:");
-  console.table({
-    Name: item.getItemName(),
-    Price: item.getItemPrice(),
-    Type: item.getItemType(),
-    Tax: item.getTax(),
-    "Total Price": item.getTotalPrice(),
-  });
+  console.table(item.getSummary());
   console.log();
 }
 
-// main fucntion to handle the flow of the program
+// Main function to handle the program flow
 export async function main() {
-  //if user to wanted to enter the details of the item - initilly set to true
-  let moreToBeInserted = true;
+  try {
+    let moreToBeInserted = true;
 
-  while (moreToBeInserted) {
-    await processNewItem();
-    const response = await getUserInput(
-      "Do you want to enter details of any other item? (yes/no) : "
-    );
-    //if user wants to enter more items
-    moreToBeInserted = response.trim().toLowerCase() === "yes";
+    while (moreToBeInserted) {
+      await processNewItem();
+      const response = await getUserInput(
+        "Do you want to enter details of any other item? (yes/no): "
+      );
+      moreToBeInserted = response.trim().toLowerCase() === "yes";
+    }
+
+    console.log("All items have been processed successfully.");
+  } catch (error) {
+    console.error(error);
   }
-  process.exit();
 }
 
-// calling the main function and catching any errors
-main().catch(console.error);
+// calling main function to start the program
+main();
