@@ -1,9 +1,5 @@
 import { getUserInput } from "./input.js";
-import {
-  validateItemType,
-  validatePrice,
-  validateQuantity,
-} from "./input-validation.js";
+import * as validations from "./input-validation.js";
 import { ItemType } from "../models/item-type.js";
 
 // Interface for item input data
@@ -20,14 +16,14 @@ export async function getValidatedItemInput(): Promise<ItemInputData | null> {
   const itemName = await getUserInput("Enter item name: ");
 
   const priceStr = await getUserInput("Enter item price: ");
-  const itemPrice = validatePrice(priceStr);
+  const itemPrice = validations.validatePrice(priceStr);
   if (itemPrice === null) {
     console.log("Invalid price entered.");
     return null;
   }
 
   const quantityStr = await getUserInput("Enter item quantity: ");
-  const itemQuantity = validateQuantity(quantityStr);
+  const itemQuantity = validations.validateQuantity(quantityStr);
   if (itemQuantity === null) {
     console.log("Invalid quantity entered.");
     return null;
@@ -36,7 +32,7 @@ export async function getValidatedItemInput(): Promise<ItemInputData | null> {
   const typeStr = await getUserInput(
     "Enter item type (raw/manufactured/imported): "
   );
-  const itemType = validateItemType(typeStr);
+  const itemType = validations.validateItemType(typeStr);
   if (!itemType) {
     console.log("Invalid item type entered.");
     return null;

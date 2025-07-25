@@ -1,32 +1,21 @@
 import { getUserInput } from "../utils/input.js";
-import {
-  validateItemType,
-  validatePrice,
-  validateQuantity,
-} from "../utils/input-validation.js";
-import {
-  Item,
-  RawItem,
-  ManufacturedItem,
-  ImportedItem,
-} from "../models/item.js";
-
+import * as item from "../models/item.js";
 import { ItemType } from "../models/item-type.js";
 import { ItemInputData } from "../utils/input-handler.js";
 
 // Factory map: associates ItemType with the corresponding class
 const itemTypeMap: Record<
   ItemType,
-  new (name: string, price: number, quantity: number, type: ItemType) => Item
+  new (name: string, price: number, quantity: number, type: ItemType) => item.Item
 > = {
-  [ItemType.RAW]: RawItem,
-  [ItemType.MANUFACTURED]: ManufacturedItem,
-  [ItemType.IMPORTED]: ImportedItem,
+  [ItemType.RAW]: item.RawItem,
+  [ItemType.MANUFACTURED]: item.ManufacturedItem,
+  [ItemType.IMPORTED]: item.ImportedItem,
 };
 
 export class ItemFactory {
   // this function creates an item based on the input data
-  static async createItem(data: ItemInputData): Promise<Item | null> {
+  static createItem(data: ItemInputData): item.Item | null {
     const { itemName, itemPrice, itemQuantity, itemType } = data;
 
     const itemClass = itemTypeMap[itemType as ItemType];
