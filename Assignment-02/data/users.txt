@@ -1,0 +1,62 @@
+[
+  {
+    "fullName": "bharat",
+    "age": 24,
+    "address": "indore",
+    "rollNumber": 23,
+    "courses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "fullName": "bharat",
+    "age": 112,
+    "address": "feifne",
+    "rollNumber": 43,
+    "courses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "fullName": "bharat katariya",
+    "age": 23,
+    "address": "indore india",
+    "rollNumber": 60,
+    "courses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "fullName": "eefdfgbh",
+    "age": 24,
+    "address": "fwfwff",
+    "rollNumber": 33,
+    "courses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "fullName": "ergdgrdgr",
+    "age": 22,
+    "address": "wfef4r4rgrg",
+    "rollNumber": 1,
+    "courses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Good for modern JS features (like optional chaining)
+    "module": "ESNext", // ESNext modules (useful for native imports)
+    "moduleResolution": "Node", // Required for resolving `node_modules`
+    "outDir": "./dist", // Compiled JS files will go here
+    "rootDir": "./src", // TS compiler starts from here
+    "esModuleInterop": true, // Allows default import of CommonJS modules (like prompt-sync)
+    "forceConsistentCasingInFileNames": true, // Prevents case mismatch bugs (important on Linux/macOS)
+    "strict": true, // Enables all strict type checking
+    "skipLibCheck": true // Speeds up compile by skipping type checks on node_modules
+  },
+  "include": ["src"]
+}
