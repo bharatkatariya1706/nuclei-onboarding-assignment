@@ -2,13 +2,12 @@ import { describe, it, expect } from "vitest";
 import { User } from "../src/models/user";
 
 describe("User Class", () => {
-  const user: User = {
-    fullName: "Bharat Katariya",
-    age: 22,
-    address: "Indore, India",
-    rollNumber: 112,
-    courses: ["A", "B", "C", "D"],
-  };
+  const user = new User("Bharat Katariya", 22, "Indore, India", 112, [
+    "A",
+    "B",
+    "C",
+    "D",
+  ]);
 
   it("should have a valid fullName", () => {
     expect(typeof user.fullName).toBe("string");

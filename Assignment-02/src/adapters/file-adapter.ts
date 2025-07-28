@@ -2,11 +2,12 @@ import { writeFileSync, readFileSync, existsSync } from "fs";
 import { User } from "../models/user.js";
 
 export class FileAdapter {
-  private static readonly FILE_PATH = "./data/users.json";
+  private static readonly FILE_PATH = "./data/users.txt";
 
   //this method saves the users to a file
   public static save(users: User[]): void {
-    writeFileSync(this.FILE_PATH, JSON.stringify(users, null, 2));
+    const jsonData = JSON.stringify(users, null, 2); 
+    writeFileSync(FileAdapter.FILE_PATH, jsonData, "utf-8");
   }
 
   //this method loads the users from a file
@@ -21,7 +22,7 @@ export class FileAdapter {
 
       return JSON.parse(fileData) as User[];
     } catch (error) {
-      console.error(" Error reading users.json: ", error);
+      console.error(" Error reading users.txt: ", error);
       return [];
     }
   }

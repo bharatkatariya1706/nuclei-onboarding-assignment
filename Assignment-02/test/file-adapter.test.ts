@@ -24,8 +24,9 @@ describe("FileAdapter", () => {
     FileAdapter.save([mockUser]);
 
     expect(writeFileSync).toHaveBeenCalledWith(
-      "./data/users.json",
-      JSON.stringify([mockUser], null, 2)
+      "./data/users.txt",
+      JSON.stringify([mockUser], null, 2),
+      "utf-8"
     );
   });
 

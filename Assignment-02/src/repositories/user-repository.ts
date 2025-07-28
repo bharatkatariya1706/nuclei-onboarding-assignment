@@ -15,7 +15,7 @@ export class UserRepository {
     return UserRepository.instance;
   }
 
-  // Add new user and keep list sorted
+  // Add new user and keep it sorted
   public addUser(user: User): void {
     this.users.push(user);
     this.sortUsers();
@@ -48,7 +48,7 @@ export class UserRepository {
         : a.rollNumber - b.rollNumber; // if names are exactly the same, sort by roll number
     });
   }
- public clearUsers(): void {
+  public clearUsers(): void {
     this.users = [];
   }
 }

@@ -14,11 +14,11 @@ export class CLI {
     //  Load users once at startup
     const loadedUsers = FileAdapter.load();
     this.repo.setUsers(loadedUsers);
-    console.log(`📂 Loaded ${loadedUsers.length} users from disk.`);
+    console.log(`Loaded ${loadedUsers.length} users from disk.`);
 
     this.commands = {
       "1": new UserCommands.AddUserCommand(),
-      "2": new UserCommands.DisplayUserCommmand(),
+      "2": new UserCommands.DisplayUserCommand(),
       "3": new UserCommands.DeleteUserCommand(),
       "4": new UserCommands.SaveUserCommand(),
       "5": new UserCommands.ExitCommand(),
@@ -41,7 +41,7 @@ Menu:
       if (command) {
         await command.execute(); 
       } else {
-        console.log("❌ Invalid option. Please choose 1–5.");
+        console.log("Invalid option. Please choose 1-5.");
       }
     }
   }

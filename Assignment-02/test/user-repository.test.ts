@@ -2,7 +2,6 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { UserRepository } from "../src/repositories/user-repository";
 import { User } from "../src/models/user";
 
-
 describe("UserRepository", () => {
   let repo: UserRepository;
 
@@ -40,13 +39,16 @@ describe("UserRepository", () => {
     expect(repo).toBe(anotherInstance);
   });
 
-  it("should add user and sort them", () => {
+  it("should add users and sort by name then rollNumber", () => {
     repo.addUser(user1);
     repo.addUser(sameNameUser); // same name, lower roll number
+    repo.addUser(user2); 
 
     const users = repo.getUsers();
-    expect(users.length).toBe(2);
-    expect(users[0].rollNumber).toBe(100); // sorted by name then rollNumber
+    expect(users.length).toBe(3);
+    expect(users[0].rollNumber).toBe(100); 
+    expect(users[1].rollNumber).toBe(101); 
+    expect(users[2].fullName).toBe("Bob"); 
   });
 
   it("should delete user by roll number", () => {
@@ -65,18 +67,20 @@ describe("UserRepository", () => {
     repo.addUser(user1);
     const users = repo.getUsers();
     users.push(user2); // modify copy
-    expect(repo.getUsers().length).toBe(1); 
+    expect(repo.getUsers().length).toBe(1);
   });
 
   it("should replace all users with setUsers and sort", () => {
-    repo.setUsers([user1, sameNameUser]);
+    repo.setUsers([user1, sameNameUser, user2]);
     const users = repo.getUsers();
-    expect(users[0].rollNumber).toBe(100); // lower rollNumber first
+    expect(users[0].rollNumber).toBe(100);
+    expect(users[1].rollNumber).toBe(101); 
+    expect(users[2].rollNumber).toBe(102); 
   });
 
   it("calls getUsers and returns expected data", () => {
     repo.addUser(user1);
-    const users = repo.getUsers(); 
+    const users = repo.getUsers();
     expect(users.length).toBe(1);
     expect(users[0].fullName).toBe("Alice");
   });
