@@ -1,0 +1,74 @@
+[
+  {
+    "fullName": "bharat katariya",
+    "age": 12,
+    "address": "eifnn",
+    "rollNumber": 191,
+    "courses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "fullName": "bharat katariya",
+    "age": 25,
+    "address": "indore india",
+    "rollNumber": 1002044,
+    "courses": [
+      "A",
+      "B",
+      "D",
+      "C"
+    ]
+  },
+  {
+    "fullName": "rahul bhatiya",
+    "age": 134,
+    "address": "indonesia",
+    "rollNumber": 1010,
+    "courses": [
+      "A",
+      "F",
+      "E",
+      "D"
+    ]
+  },
+  {
+    "fullName": "salman khan",
+    "age": 54,
+    "address": "bandra west",
+    "rollNumber": 32,
+    "courses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "fullName": "salman khan",
+    "age": 61,
+    "address": "andheri east",
+    "rollNumber": 37,
+    "courses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "fullName": "shah rukh khan",
+    "age": 58,
+    "address": "mannat mumbai",
+    "rollNumber": 100,
+    "courses": [
+      "A",
+      "B",
+      "D",
+      "E"
+    ]
+  }
+]
