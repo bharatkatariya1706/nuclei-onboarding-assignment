@@ -7,6 +7,9 @@
 # TypeScript cache
 *.tsbuildinfo
 
+coverage/
+
+
 # environment files
 .env
 
